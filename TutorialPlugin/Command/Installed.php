@@ -1,11 +1,11 @@
 <?php
-namespace Pulsestorm\TutorialPlugin\Command;
+namespace Dolphin\TutorialPlugin\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Pulsestorm\TutorialPlugin\Model\Example;
+use Dolphin\TutorialPlugin\Model\Example;
 
 class Installed extends Command
 {
@@ -24,6 +24,6 @@ class Installed extends Command
     
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("You've installed Pulsestorm_TutorialPlugin");
+        $output->writeln("You've installed Dolphin_TutorialPlugin");
     }
 } 

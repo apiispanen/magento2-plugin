@@ -3,8 +3,8 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="Dolphin\TutorialPluginTestbedCommand"   xsi:type="object">Pulsestorm\TutorialPlugin\Command\Testbed</item>
-                <item name="Dolphin\TutorialPluginInstalledCommand" xsi:type="object">Pulsestorm\TutorialPlugin\Command\Installed</item>
+                <item name="Dolphin\TutorialPluginTestbedCommand"   xsi:type="object">Dolphin\TutorialPlugin\Command\Testbed</item>
+                <item name="Dolphin\TutorialPluginInstalledCommand" xsi:type="object">Dolphin\TutorialPlugin\Command\Installed</item>
             </argument>
         </arguments>
     </type>    

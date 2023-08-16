@@ -1,11 +1,11 @@
 <?php
-namespace Pulsestorm\TutorialPlugin\Command;
+namespace Dolphin\TutorialPlugin\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Pulsestorm\TutorialPlugin\Model\Example;
+use Dolphin\TutorialPlugin\Model\Example;
 
 class Testbed extends Command
 {
@@ -77,7 +77,7 @@ class Testbed extends Command
             }
         }
         
-        // $classes = ['Pulsestorm\TutorialPlugin\Model\Example\Plugin'];
+        // $classes = ['Dolphin\TutorialPlugin\Model\Example\Plugin'];
         foreach($classes as $class)
         {
             $this->testPluginClassForClosureCall($class);

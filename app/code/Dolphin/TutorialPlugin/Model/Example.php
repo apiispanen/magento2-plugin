@@ -1,5 +1,5 @@
 <?php
-namespace Pulsestorm\TutorialPlugin\Model;
+namespace Dolphin\TutorialPlugin\Model;
 class Example
 {
     public function getMessage($thing='World', $should_lc=false)

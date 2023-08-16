@@ -1,5 +1,5 @@
 <?php
-namespace Pulsestorm\TutorialPlugin\Model\Conflict;
+namespace Dolphin\TutorialPlugin\Model\Conflict;
 class Plugin1
 {
     public function afterGetMessage($subject, $result)

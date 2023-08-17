@@ -1,4 +1,11 @@
 <!-- app/code/Dolphin/TutorialPlugin/view/adminhtml/templates/settings.phtml -->
-<h1><?php echo __('Tutorial Plugin Settings'); ?></h1>
-<p><?php echo __('Here you can configure your plugin.'); ?></p>
-<!-- You can add forms, tables, and other HTML content here -->
+<form action="your_action_url" method="post">
+    <?php $actionUrl = $block->getUrl('tutorialplugin/settings/index');?>
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>" />
+
+
+    <h1><?php echo __('Tutorial Plugin Settings'); ?></h1>
+    <p><?php echo __('Here you can configure your plugin.'); ?></p>
+    </form>
+
+    <!-- You can add forms, tables, and other HTML content here -->

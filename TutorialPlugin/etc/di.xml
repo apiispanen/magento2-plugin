@@ -8,5 +8,9 @@
             </argument>
         </arguments>
     </type>    
+    <type name='Dolphin\TutorialPlugin\Controller\Index\Example'> 
+     <plugin name='Dolphin_TutorialPlugin' type='Dolphin\TutorialPlugin\Plugin\ExamplePlugin' sortOrder='10' disabled='false'  />
+   </type>
+
     <!-- END: argument replacement that enables our command -->    
 </config>

@@ -1,23 +1,29 @@
-<?php namespace Dolphin\TutorialPlugin\Controller\Adminhtml\Settings;
+<?php 
+namespace Dolphin\TutorialPlugin\Controller\Adminhtml\Settings;
 
 use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\Result\RawFactory;
 
 class Index extends Action
 {
-    protected $resultPageFactory;
+    protected $resultRawFactory;
 
-    public function __construct(Context $context, PageFactory $resultPageFactory)
+    public function __construct(Action\Context $context, RawFactory $resultRawFactory)
     {
-        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
+        $this->resultRawFactory = $resultRawFactory;
     }
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Tutorial Plugin Settings'));
-        return $resultPage;
+        $resultRaw = $this->resultRawFactory->create();
+        $resultRaw->setContents('Hello World!');
+        return $resultRaw;
+    }
+
+    protected function _isAllowed()
+    {
+        // You may want to set a custom ACL rule here or use an existing rule
+        return $this->_authorization->isAllowed('Magento_Backend::content');
     }
 }

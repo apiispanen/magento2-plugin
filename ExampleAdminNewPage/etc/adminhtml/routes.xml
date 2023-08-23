@@ -1,7 +1,8 @@
+<?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="tutorialplugin" frontName="tutorialplugin">
-            <module name="Dolphin_TutorialPlugin" />
+        <route id="exampleadminnewpage" frontName="exampleadminnewpage">
+            <module name="Dolphin_ExampleAdminNewPage"/>
         </route>
     </router>
 </config>

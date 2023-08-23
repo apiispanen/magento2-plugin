@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Dolphin\TutorialPlugin\Controller\Adminhtml\HelloWorld;
+namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\HelloWorld;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -17,7 +17,7 @@ use Magento\Framework\View\Result\PageFactory;
  */
 class Index extends Action implements HttpGetActionInterface
 {
-    const MENU_ID = 'Dolphin_TutorialPlugin::greetings_helloworld';
+    const MENU_ID = 'Dolphin_ExampleAdminNewPage::greetings_helloworld';
 
     /**
      * @var PageFactory
@@ -40,7 +40,7 @@ class Index extends Action implements HttpGetActionInterface
     }
 
     /**
-     * Load the page defined in view/adminhtml/layout/TutorialPlugin_helloworld_index.xml
+     * Load the page defined in view/adminhtml/layout/exampleadminnewpage_helloworld_index.xml
      *
      * @return Page
      */

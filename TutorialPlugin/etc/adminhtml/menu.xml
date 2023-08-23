@@ -1,6 +1,0 @@
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Dolphin_TutorialPlugin::main_menu" title="Tutorial Plugin" module="Dolphin_TutorialPlugin" sortOrder="50" resource="Magento_Backend::content"/>
-        <add id="Dolphin_TutorialPlugin::sub_menu" title="Settings" action="tutorialplugin/settings" module="Dolphin_TutorialPlugin" sortOrder="10" parent="Dolphin_TutorialPlugin::main_menu" resource="Magento_Backend::content"/>
-    </menu>
-</config>

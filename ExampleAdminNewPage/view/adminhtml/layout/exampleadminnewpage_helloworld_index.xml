@@ -7,7 +7,7 @@
     </referenceBlock>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" template="Dolphin_TutorialPlugin::helloworld.phtml"/>
+            <block class="Magento\Backend\Block\Template" template="Dolphin_ExampleAdminNewPage::helloworld.phtml"/>
         </referenceContainer>
     </body>
 </page>

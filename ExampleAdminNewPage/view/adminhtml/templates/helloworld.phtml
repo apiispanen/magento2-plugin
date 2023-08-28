@@ -5,8 +5,9 @@
 
 
 
-
+    echo "Hello World!";
     $yourApiKey = getenv('OPENAI_API_KEY');
+    echo $yourApiKey;
 
     $client = OpenAI::client($yourApiKey);
 
@@ -38,26 +39,26 @@
     //     ],
     // ]);
     
-    $response->id; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
-    $response->object; // 'chat.completion'
-    $response->created; // 1677701073
-    $response->model; // 'gpt-3.5-turbo-0301'
+    // $response->id; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
+    // $response->object; // 'chat.completion'
+    // $response->created; // 1677701073
+    // $response->model; // 'gpt-3.5-turbo-0301'
     
-    foreach ($response->choices as $result) {
-        $result->index; // 0
-        $result->message->role; // 'assistant'
-        $result->message->content; // '\n\nHello there! How can I assist you today?'
-        $result->finishReason; // 'stop'
-    }
+    // foreach ($response->choices as $result) {
+    //     $result->index; // 0
+    //     $result->message->role; // 'assistant'
+    //     $result->message->content; // '\n\nHello there! How can I assist you today?'
+    //     $result->finishReason; // 'stop'
+    // }
     
-    $response->usage->promptTokens; // 9,
-    $response->usage->completionTokens; // 12,
-    $response->usage->totalTokens; // 21
+    // $response->usage->promptTokens; // 9,
+    // $response->usage->completionTokens; // 12,
+    // $response->usage->totalTokens; // 21
     
-    $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]
-    // print the response
-    echo json_encode($response->toArray());    
-    echo $response; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
+    // $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]
+    // // print the response
+    // echo json_encode($response->toArray());    
+    // echo $response; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
     // foreach ($response->choices as $result) {
     //     echo $result->message->content;
     // }

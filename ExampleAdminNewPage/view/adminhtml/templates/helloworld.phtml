@@ -3,26 +3,40 @@
     <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
+
+
+
     $yourApiKey = getenv('OPENAI_API_KEY');
 
-    $client = OpenAI::factory()
-        ->withApiKey($yourApiKey)
-        ->withOrganization('org-jNnj47oni5w3Xad1a5a6oVvz') // default: null
-        ->withBaseUri('https://api.openai.com/v1/chat/completions') // default: api.openai.com/v1
-        ->withHttpClient($client = new \GuzzleHttp\Client([])) // default: HTTP client found using PSR-18 HTTP Client Discovery
-        ->withHttpHeader('X-My-Header', 'foo')
-        ->withQueryParam('my-param', 'bar')
-        ->withStreamHandler(fn (RequestInterface $request): ResponseInterface => $client->send($request, [
-            'stream' => true // Allows to provide a custom stream handler for the http client.
-        ]))
-        ->make();
+    $client = OpenAI::client($yourApiKey);
 
-    $response = $client->chat()->create([
-        'model' => 'gpt-3.5-turbo',
-        'messages' => [
-            ['role' => 'user', 'content' => 'Hello!'],
-        ],
+    $result = $client->completions()->create([
+        'model' => 'text-davinci-003',
+        'prompt' => 'PHP is',
     ]);
+
+    echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
+
+
+
+    // $client = OpenAI::factory()
+    //     ->withApiKey($yourApiKey)
+    //     ->withOrganization('org-jNnj47oni5w3Xad1a5a6oVvz') // default: null
+    //     ->withBaseUri('https://api.openai.com/v1/chat/completions') // default: api.openai.com/v1
+    //     ->withHttpClient($client = new \GuzzleHttp\Client([])) // default: HTTP client found using PSR-18 HTTP Client Discovery
+    //     ->withHttpHeader('X-My-Header', 'foo')
+    //     ->withQueryParam('my-param', 'bar')
+    //     ->withStreamHandler(fn (RequestInterface $request): ResponseInterface => $client->send($request, [
+    //         'stream' => true // Allows to provide a custom stream handler for the http client.
+    //     ]))
+    //     ->make();
+
+    // $response = $client->chat()->create([
+    //     'model' => 'gpt-3.5-turbo',
+    //     'messages' => [
+    //         ['role' => 'user', 'content' => 'Hello!'],
+    //     ],
+    // ]);
     
     $response->id; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
     $response->object; // 'chat.completion'

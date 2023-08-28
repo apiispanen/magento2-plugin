@@ -4,7 +4,7 @@
     <policies>
         <policy id="script-src">
             <values>
-                <value id="jquery" type="host">https://code.jquery.com"</value>
+                <value id="jquery" type="host">https://code.jquery.com</value>
             </values>
         </policy>
         <policy id="style-src">

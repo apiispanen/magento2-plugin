@@ -4,9 +4,14 @@
     <policies>
         <policy id="script-src">
             <values>
-                <value id="uniqueId" type="host">https://cdn.tailwindcss.com</value>
-                <value id="uniqueId" type="host">https://code.jquery.com"</value>
+                <value id="jquery" type="host">https://code.jquery.com"</value>
             </values>
         </policy>
+        <policy id="style-src">
+            <values>
+                <value id="tailwind" type="host">https://cdn.tailwindcss.com</value>
+            </values>
+        </policy>
+
     </policies>
 </csp_whitelist>

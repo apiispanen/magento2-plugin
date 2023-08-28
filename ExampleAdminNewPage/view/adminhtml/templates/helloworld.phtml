@@ -1,116 +1,97 @@
 <!-- Make an HTML page for a custom chatbot for doall saws. include configurations like GPT temperature, upload pdf and connect to database: -->
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+        $(document).ready(function () {
+            $('#send-btn').click(function () {
+                var userText = $('#user-input').val();
+                $('#user-input').val('');
+                $('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
+
+                // Send the user's message to the server and get the response
+                $.ajax({
+                    url: 'chatbot.php',
+                    type: 'POST',
+                    data: { 'text': userText },
+                    success: function (response) {
+                        var responseObj = JSON.parse(response);
+                        $('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
 
     <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
 
-
+    // repo is https://github.com/openai-php/client
     echo "Hello World!";
     $yourApiKey = getenv('OPENAI_API_KEY');
     echo $yourApiKey;
 
     $client = OpenAI::client($yourApiKey);
-
-    $result = $client->completions()->create([
-        'model' => 'text-davinci-003',
-        'prompt' => 'PHP is',
+    $response = $client->chat()->create([
+        'model' => 'gpt-3.5-turbo',
+        'messages' => [
+            ['role' => 'user', 'content' => 'Hello!'],
+        ],
     ]);
-
-    echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
-
-
-
-    // $client = OpenAI::factory()
-    //     ->withApiKey($yourApiKey)
-    //     ->withOrganization('org-jNnj47oni5w3Xad1a5a6oVvz') // default: null
-    //     ->withBaseUri('https://api.openai.com/v1/chat/completions') // default: api.openai.com/v1
-    //     ->withHttpClient($client = new \GuzzleHttp\Client([])) // default: HTTP client found using PSR-18 HTTP Client Discovery
-    //     ->withHttpHeader('X-My-Header', 'foo')
-    //     ->withQueryParam('my-param', 'bar')
-    //     ->withStreamHandler(fn (RequestInterface $request): ResponseInterface => $client->send($request, [
-    //         'stream' => true // Allows to provide a custom stream handler for the http client.
-    //     ]))
-    //     ->make();
-
-    // $response = $client->chat()->create([
-    //     'model' => 'gpt-3.5-turbo',
-    //     'messages' => [
-    //         ['role' => 'user', 'content' => 'Hello!'],
-    //     ],
-    // ]);
     
-    // $response->id; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
-    // $response->object; // 'chat.completion'
-    // $response->created; // 1677701073
-    // $response->model; // 'gpt-3.5-turbo-0301'
+    $response->id; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
+    $response->object; // 'chat.completion'
+    $response->created; // 1677701073
+    $response->model; // 'gpt-3.5-turbo-0301'
     
-    // foreach ($response->choices as $result) {
-    //     $result->index; // 0
-    //     $result->message->role; // 'assistant'
-    //     $result->message->content; // '\n\nHello there! How can I assist you today?'
-    //     $result->finishReason; // 'stop'
-    // }
+    foreach ($response->choices as $result) {
+        $result->index; // 0
+        $result->message->role; // 'assistant'
+        $result->message->content; // '\n\nHello there! How can I assist you today?'
+        $result->finishReason; // 'stop'
+    }
     
-    // $response->usage->promptTokens; // 9,
-    // $response->usage->completionTokens; // 12,
-    // $response->usage->totalTokens; // 21
+    $response->usage->promptTokens; // 9,
+    $response->usage->completionTokens; // 12,
+    $response->usage->totalTokens; // 21
     
-    // $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]
-    // // print the response
-    // echo json_encode($response->toArray());    
-    // echo $response; // 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq'
-    // foreach ($response->choices as $result) {
-    //     echo $result->message->content;
-    // }
+    $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]    
     ?>
-    <!-- <script>
-    const messages = [
-    { role: "system", content: "You are a helpful assistant. You will talk like a pirate." },
-    { role: "user", content: "Can you help me?" },
-    { role: "assistant", content: "Arrrr! Of course, me hearty! What can I do for ye?" },
-    { role: "user", content: "What's the best way to train a parrot?" },
-    ];
 
-  console.log(`Messages: ${messages.map((m) => m.content).join("\n")}`);
-
-
-    require([
-        'jquery'
-    ], function ($) {
-        $(document).ready(function () {
-            $('#chatbot-submit').click(function (event) {
-                event.preventDefault();
-
-                var message = $('#chatbot-input').val();
-
-                if (message) {
-                    $.ajax({
-                        url: 'https://api.example.com/chatbot',
-                        method: 'POST',
-                        data: JSON.stringify({ message: message }),
-                        contentType: 'application/json',
-                        success: function (response) {
-                            // Handle success
-                            $('#chatbot-response').text(response.reply);
-                        },
-                        error: function (error) {
-                            // Handle error
-                            console.error(error);
-                        }
-                    });
-                }
-            });
-        });
-    });
-    </script> -->
-
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <h1 class="text-xl">DoAll Saws Chatbot</h1>
     
     <h2 class="text-lg">Configurations</h2>
     <p class="text-md">Here is the HTML of the above query:</p>
-    <p>Here is the HTML of the above query:</p>
-    <p>Here is the HTML of the above query:</p>
+
+    <div class="chatbox" style="border:1px solid #ccc; padding:10px; margin-bottom:10px; height:200px; overflow-y:scroll;" id="chatbox">
+        <!-- Chat will appear here -->
+    </div>
+
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <button id="send-btn">Send</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#send-btn').click(function () {
+                var userText = $('#user-input').val();
+                $('#user-input').val('');
+                $('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
+
+                // Send the user's message to the server and get the response
+                $.ajax({
+                    url: 'chatbot.php',
+                    type: 'POST',
+                    data: { 'text': userText },
+                    success: function (response) {
+                        var responseObj = JSON.parse(response);
+                        $('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+
     <!-- add an upload link -->
     <input type="file" id="myFile" name="filename">
     <!-- With tailwinds, add a temperature slider -->

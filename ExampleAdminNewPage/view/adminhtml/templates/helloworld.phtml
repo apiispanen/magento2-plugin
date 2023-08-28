@@ -28,15 +28,15 @@
 
 
     // repo is https://github.com/openai-php/client
-    echo "Hello World!";
+    // echo "Hello World!";
     $yourApiKey = getenv('OPENAI_API_KEY');
-    echo $yourApiKey;
+    // echo $yourApiKey;
 
     $client = OpenAI::client($yourApiKey);
     $response = $client->chat()->create([
         'model' => 'gpt-3.5-turbo',
         'messages' => [
-            ['role' => 'user', 'content' => 'Hello!'],
+            ['role' => 'user', 'content' => $_POST['text']],
         ],
     ]);
     

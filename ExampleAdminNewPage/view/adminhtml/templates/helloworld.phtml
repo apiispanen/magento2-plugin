@@ -7,8 +7,8 @@
 
     $client = OpenAI::factory()
         ->withApiKey($yourApiKey)
-        ->withOrganization('your-organization') // default: null
-        ->withBaseUri('openai.example.com/v1') // default: api.openai.com/v1
+        ->withOrganization('org-jNnj47oni5w3Xad1a5a6oVvz') // default: null
+        ->withBaseUri('api.openai.com/v1/chat/completions') // default: api.openai.com/v1
         ->withHttpClient($client = new \GuzzleHttp\Client([])) // default: HTTP client found using PSR-18 HTTP Client Discovery
         ->withHttpHeader('X-My-Header', 'foo')
         ->withQueryParam('my-param', 'bar')
@@ -48,7 +48,7 @@
     //     echo $result->message->content;
     // }
     ?>
-    <script>
+    <!-- <script>
     const messages = [
     { role: "system", content: "You are a helpful assistant. You will talk like a pirate." },
     { role: "user", content: "Can you help me?" },
@@ -87,7 +87,7 @@
             });
         });
     });
-    </script>
+    </script> -->
 
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <h1 class="text-xl">DoAll Saws Chatbot</h1>

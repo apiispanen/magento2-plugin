@@ -25,12 +25,12 @@
 
         public function execute()
         {
-
+            echo "Hello World!";
             $result = $this->resultJsonFactory->create();
 
             
             // repo is https://github.com/openai-php/client
-            // echo "Hello World!";
+            echo "Hello World!";
             $yourApiKey = getenv('OPENAI_API_KEY');
             // echo $yourApiKey;
             $text = $this->getRequest()->getPost('text');

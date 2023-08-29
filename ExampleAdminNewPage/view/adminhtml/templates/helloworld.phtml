@@ -9,12 +9,13 @@
                 var userText = jQuery('#user-input').val();
                 jQuery('#user-input').val('');
                 jQuery('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
+                var formKey = window.FORM_KEY;
 
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
                     url: 'http://ec2-3-88-148-76.compute-1.amazonaws.com/admin/exampleadminnewpage/helloworld_chatbot',
                     type: 'POST',
-                    data: { 'text': userText },
+                    data: { form_key: formKey, text: userText },
                     success: function (response) {
                         console.log(response);
                         var responseObj = JSON.parse(response);

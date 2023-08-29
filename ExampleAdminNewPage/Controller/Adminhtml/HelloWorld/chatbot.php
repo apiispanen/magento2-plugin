@@ -29,12 +29,14 @@
             // echo "Hello World!";
             $yourApiKey = getenv('OPENAI_API_KEY');
             // echo $yourApiKey;
+            $text = $this->getRequest()->getPost('text');
+            echo $text;
 
             $client = OpenAI::client($yourApiKey);
             $response = $client->chat()->create([
                 'model' => 'gpt-3.5-turbo',
                 'messages' => [
-                    ['role' => 'user', 'content' => $_POST['text']],
+                    ['role' => 'user', 'content' => $text],
                 ],
             ]);
             
@@ -55,7 +57,8 @@
             $response->usage->totalTokens; // 21
             
             // return the response
-            echo json_encode($response);
+            // echo json_encode($response);
+            
             return $result->setData($response);
 }
 }

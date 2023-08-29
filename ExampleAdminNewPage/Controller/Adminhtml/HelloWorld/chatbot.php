@@ -1,17 +1,18 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
-    namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\HelloWorld;
     // require 'vendor/autoload.php';
     use OpenAI\OpenAI;
 
-    use Magento\Backend\App\Action;
-    use Magento\Backend\App\Action\Context;
+    namespace Vendor\Module\Controller\HelloWorld;
+
+    use Magento\Framework\App\Action\Action;
+    use Magento\Framework\App\Action\Context;
     use Magento\Framework\Controller\Result\JsonFactory;
     
     class Chatbot extends Action
     {
-        protected $resultJsonFactory;
+            protected $resultJsonFactory;
     
         public function __construct(
             Context $context,
@@ -61,7 +62,7 @@
             
             // return the response
             // echo json_encode($response);
-            
-            return $result->setData($response);
+            $factoryresponse = $this->resultJsonFactory->create();
+            return $factoryresponse->setData(['response' => ['content' => 'Your response here']]);
 }
 }

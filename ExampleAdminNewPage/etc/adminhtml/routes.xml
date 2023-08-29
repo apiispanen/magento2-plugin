@@ -5,4 +5,9 @@
             <module name="Dolphin_ExampleAdminNewPage"/>
         </route>
     </router>
+       <router id="standard">
+        <route id="exampleadminnewpage" frontName="exampleadminnewpage">
+            <module name="Vendor_Module"/>
+        </route>
+    </router>
 </config>

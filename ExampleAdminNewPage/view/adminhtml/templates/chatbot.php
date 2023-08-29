@@ -31,5 +31,5 @@
     $response->usage->completionTokens; // 12,
     $response->usage->totalTokens; // 21
     
-    $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]    
+    // $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]    
     ?>

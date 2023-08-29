@@ -16,6 +16,7 @@
                     type: 'POST',
                     data: { 'text': userText },
                     success: function (response) {
+                        console.log(response);
                         var responseObj = JSON.parse(response);
                         $('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
                     }

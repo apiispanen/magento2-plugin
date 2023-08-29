@@ -1,24 +1,24 @@
 <!-- Make an HTML page for a custom chatbot for doall saws. include configurations like GPT temperature, upload pdf and connect to database: -->
 <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jQuery.com/jQuery-3.6.0.min.js"></script>
 
 <script>
-        $(document).ready(function () {
-            $('#send-btn').click(function () {
+        jQuery(document).ready(function () {
+            jQuery('#send-btn').click(function () {
                 console.log('clicked');
-                var userText = $('#user-input').val();
-                $('#user-input').val('');
-                $('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
+                var userText = jQuery('#user-input').val();
+                jQuery('#user-input').val('');
+                jQuery('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
 
                 // Send the user's message to the server and get the response
-                $.ajax({
+                jQuery.ajax({
                     url: 'chatbot.php',
                     type: 'POST',
                     data: { 'text': userText },
                     success: function (response) {
                         console.log(response);
                         var responseObj = JSON.parse(response);
-                        $('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
+                        jQuery('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
                     }
                 });
             });

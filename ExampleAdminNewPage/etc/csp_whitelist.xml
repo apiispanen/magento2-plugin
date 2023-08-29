@@ -12,6 +12,11 @@
                 <value id="tailwind" type="host">https://cdn.tailwindcss.com</value>
             </values>
         </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="purechat" type="host">http://ec2-3-88-148-76.compute-1.amazonaws.com</value>
+            </values>
+        </policy>
 
     </policies>
 </csp_whitelist>

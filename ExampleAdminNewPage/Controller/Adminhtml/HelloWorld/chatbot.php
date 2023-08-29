@@ -19,10 +19,14 @@
         ) {
             parent::__construct($context);
             $this->resultJsonFactory = $resultJsonFactory;
+            $this->logger = $logger;
+
         }
-    
+        
         public function execute()
         {
+            $this->logger->info('Chatbot execute method called');
+
             $result = $this->resultJsonFactory->create();
 
             

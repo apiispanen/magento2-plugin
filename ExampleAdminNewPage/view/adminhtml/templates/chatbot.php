@@ -1,7 +1,8 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
-
+    require 'vendor/autoload.php';
+    
     // repo is https://github.com/openai-php/client
     // echo "Hello World!";
     $yourApiKey = getenv('OPENAI_API_KEY');
@@ -31,5 +32,8 @@
     $response->usage->completionTokens; // 12,
     $response->usage->totalTokens; // 21
     
+    // return the response
+    echo json_encode($response);
+
     // $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]    
     ?>

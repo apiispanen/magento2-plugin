@@ -1,7 +1,7 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
-    namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\Helloworld;
+    namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\HelloWorld;
     // require 'vendor/autoload.php';
     use OpenAI\OpenAI;
 

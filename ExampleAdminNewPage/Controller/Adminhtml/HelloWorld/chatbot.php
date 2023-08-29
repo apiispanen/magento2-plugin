@@ -2,7 +2,7 @@
     // With PHP, make an api request to the chatbot on click of the submit button:
 
     namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\Helloworld;
-    require 'vendor/autoload.php';
+    // require 'vendor/autoload.php';
 
     use Magento\Backend\App\Action;
     use Magento\Backend\App\Action\Context;

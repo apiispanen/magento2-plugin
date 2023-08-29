@@ -3,6 +3,7 @@
 
     namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\Helloworld;
     // require 'vendor/autoload.php';
+    use OpenAI\OpenAI;
 
     use Magento\Backend\App\Action;
     use Magento\Backend\App\Action\Context;

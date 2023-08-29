@@ -1,6 +1,28 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
+    namespace Dolphin\ExampleAdminNewPage\Controller\Adminhtml\Helloworld;
+
+    use Magento\Backend\App\Action;
+    use Magento\Backend\App\Action\Context;
+    use Magento\Framework\Controller\Result\JsonFactory;
+    
+    class Chatbot extends Action
+    {
+        protected $resultJsonFactory;
+    
+        public function __construct(
+            Context $context,
+            JsonFactory $resultJsonFactory
+        ) {
+            parent::__construct($context);
+            $this->resultJsonFactory = $resultJsonFactory;
+        }
+    
+        public function execute()
+        {
+            $result = $this->resultJsonFactory->create();
+
     require 'vendor/autoload.php';
     
     // repo is https://github.com/openai-php/client
@@ -34,6 +56,6 @@
     
     // return the response
     echo json_encode($response);
-
-    // $response->toArray(); // ['id' => 'chatcmpl-6pMyfj1HF4QXnfvjtfzvufZSQq6Eq', ...]    
-    ?>
+    return $result->setData($response);
+}
+}

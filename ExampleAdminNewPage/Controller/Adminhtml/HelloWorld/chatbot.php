@@ -8,7 +8,9 @@
     use Magento\Framework\App\Action\Context;
     use Magento\Framework\Controller\Result\JsonFactory;
     
-    class Chatbot extends Action
+    
+
+    class Chatbot extends Magento\Framework\App\Action\HttpPostActionInterface
     {
             protected $resultJsonFactory;
     

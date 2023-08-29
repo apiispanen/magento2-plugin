@@ -14,7 +14,7 @@
                 console.log("domain: " + domain);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                    url: domain + '/admin/exampleadminnewpage/helloworld/chatbot',
+                    url: 'http://ec2-3-88-148-76.compute-1.amazonaws.com/admin/exampleadminnewpage/helloworld/chatbot',
                     type: 'POST',
                     data: { form_key: formKey, text: userText },
                     success: function (response) {

@@ -1,11 +1,9 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
+    namespace Vendor\Module\Controller\HelloWorld;
     // require 'vendor/autoload.php';
     use OpenAI\OpenAI;
-
-    namespace Vendor\Module\Controller\HelloWorld;
-
     use Magento\Framework\App\Action\Action;
     use Magento\Framework\App\Action\Context;
     use Magento\Framework\Controller\Result\JsonFactory;

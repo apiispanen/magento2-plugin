@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
-    <route method="POST" url="/V1/custom/chatbot/">
+    <route method="POST" url="/V1/custom/chatbot">
         <service class="Dolphin\ExampleAdminNewPage\Controller\Chatbot" method="getPost"/>
         <resources>
             <resource ref="Dolphin_ExampleAdminNewPage::gpt"/>

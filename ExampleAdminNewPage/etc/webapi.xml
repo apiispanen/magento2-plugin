@@ -3,7 +3,12 @@
     <route method="POST" url="/V1/custom/chatbot/">
         <service class="Dolphin\ExampleAdminNewPage\Controller\Chatbot" method="getPost"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Dolphin_ExampleAdminNewPage::gpt"/>
         </resources>
     </route>
+    <data>
+       <parameter name="form_key" force="true">%form_key%</parameter>
+       <parameter name="text" force="true">%text%</parameter>
+   </data>
+
 </routes>

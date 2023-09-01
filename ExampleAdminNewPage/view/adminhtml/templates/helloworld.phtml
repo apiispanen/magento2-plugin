@@ -14,15 +14,20 @@
                 console.log("domain: " + domain);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                    url: '/rest/V1/custom/chatbot',
-                    type: 'POST',
-                    data: { form_key: formKey, text: userText },
-                    success: function (response) {
-                        console.log(response);
-                        var responseObj = JSON.parse(response);
-                        jQuery('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
-                    }
-                });
+                            url: '/V1/custom/chatbot',
+                            type: 'POST',
+                            data: { form_key: formKey, text: userText },
+                            success: function (response) {
+                                console.log(response);
+                                var responseObj = response;
+                                jQuery('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.error("Error: " + textStatus + ": " + errorThrown);
+                                jQuery('#chatbox').append('<p><strong>Error:</strong> Unable to get response from server</p>');
+                            }
+                        });
+
             });
         });
     </script>

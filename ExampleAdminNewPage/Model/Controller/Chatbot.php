@@ -1,7 +1,7 @@
 <?php
     // With PHP, make an api request to the chatbot on click of the submit button:
 
-    namespace Vendor\Module\Controller\HelloWorld;
+    namespace Dolphin\ExampleAdminNewPage\Controller\Chatbot;
     // require 'vendor/autoload.php';
     use OpenAI\OpenAI;
     use Magento\Framework\App\Action\Action;
@@ -61,6 +61,7 @@
             // return the response
             // echo json_encode($response);
             $factoryresponse = $this->resultJsonFactory->create();
-            return $factoryresponse->setData(['response' => ['content' => 'Your response here']]);
+            return $factoryresponse->setData(['response' => $response->choices[0]->message->content]);
+            // return $factoryresponse->setData(['response' => ['content' => 'Your response here']]);
 }
 }

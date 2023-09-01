@@ -1,14 +1,9 @@
-<?xml version="1.0"?>
-<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
-    <route method="POST" url="/V1/custom/chatbot">
-        <service class="Dolphin\ExampleAdminNewPage\Controller\Chatbot" method="getPost"/>
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/custom/chatbot" method="POST">
+        <service class="Dolphin\ExampleAdminNewPage\Api\ChatbotInterface" method="getResponse"/>
         <resources>
-            <resource ref="Dolphin_ExampleAdminNewPage::gpt"/>
+            <resource ref="anonymous"/>
         </resources>
     </route>
-    <data>
-       <parameter name="form_key" force="false">%form_key%</parameter>
-       <parameter name="text" force="true">%text%</parameter>
-   </data>
-
 </routes>

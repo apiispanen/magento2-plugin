@@ -4,9 +4,8 @@ interface Chatbot
 {
     /**
      * GET for Post api
-     * @param string $name
-     * @param string $info
+     * @param string $text
      * @return string
      */
-    public function getPost($name, $info);
+    public function getResponse($text);
 }

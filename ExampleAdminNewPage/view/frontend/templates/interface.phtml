@@ -1,4 +1,87 @@
-<div id="example-interface">
-    <h3>Example Interface</h3>
-    <p>This is where the interface will appear on the frontend.</p>
-</div>
+<!-- Make an HTML page for a custom chatbot for doall saws. include configurations like GPT temperature, upload pdf and connect to database: -->
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<script src="https://code.jQuery.com/jQuery-3.6.0.min.js"></script>
+
+<script>
+        jQuery(document).ready(function () {
+            jQuery('#send-btn').click(function () {
+                console.log('clicked');
+                var userText = jQuery('#user-input').val();
+                jQuery('#user-input').val('');
+                jQuery('#chatbox').append('<p><strong>You:</strong> ' + userText + '</p>');
+                var formKey = window.FORM_KEY;
+                var domain = window.location.hostname;
+                console.log("domain: " + domain + " formKey: " + formKey);
+                // Send the user's message to the server and get the response
+                jQuery.ajax({
+                            url: '/V1/chatbot',
+                            type: 'POST',
+                            data: { text: userText },
+                            success: function (response) {
+                                console.log(response);
+                                var responseObj = response;
+                                jQuery('#chatbox').append('<p><strong>Bot:</strong> ' + responseObj.message.content + '</p>');
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.error("Error: " + textStatus + ": " + errorThrown);
+                                jQuery('#chatbox').append('<p><strong>Error:</strong> Unable to get response from server</p>');
+                            }
+                        });
+
+            });
+        });
+    </script>
+
+   
+
+    <h1 class="text-xl">DoAll Saws Chatbot</h1>
+    
+    <h2 class="text-lg">Configurations</h2>
+    <p class="text-md">Here is the HTML of the above query:</p>
+
+    <div class="chatbox" style="border:1px solid #ccc; padding:10px; margin-bottom:10px; height:200px; overflow-y:scroll;" id="chatbox">
+        <!-- Chat will appear here -->
+    </div>
+
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <button id="send-btn">Ask GPT</button>
+
+    <!-- add an upload link -->
+    <input type="file" id="myFile" name="filename">
+    <!-- With tailwinds, add a temperature slider -->
+    <div class="w-full">
+        <label for="temperature" class="block text-lg font-medium text-gray-700">Temperature</label>
+        <div class="mt-1">
+            <input type="range" name="temperature" id="temperature" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <!-- send an api request -->
+        <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Send</button>
+    </div>
+    <!-- add a chatbot -->
+    <div class="w-full">
+        <label for="chatbot" class="block text-sm font-medium text-gray-700">Chatbot</label>
+        <div class="mt-1">
+            <input type="text" name="chatbot" id="chatbot" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        </div>
+    </div>
+    <!-- add a database connection -->
+    <div class="w-full">
+        <label for="database" class="block text-sm font-medium text-gray-700">Database</label>
+        <div class="mt-1">
+            <input type="text" name="database" id="database" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        </div>
+    </div>
+    <!-- add a pdf upload -->
+    <div class="w-full">
+        <label for="pdf" class="block text-sm font-medium text-gray-700">PDF</label>
+        <div class="mt-1">
+            <input type="file" name="pdf" id="pdf" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        </div>
+    </div>
+    <!-- add a submit button -->
+    <button type="submit" id="chatbot-submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Submit</button>
+    <!-- add a reset button -->
+    <button type="reset" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Reset</button>
+    <!-- add a cancel button -->
+    <button type="cancel" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Cancel</button>
+    <!-- add a save button -->

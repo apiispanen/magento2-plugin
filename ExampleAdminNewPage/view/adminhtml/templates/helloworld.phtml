@@ -14,7 +14,7 @@
                 console.log("domain: " + domain);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                            url: '/V1/custom/chatbot',
+                            url: '/V1/chatbot',
                             type: 'POST',
                             data: { form_key: formKey, text: userText },
                             success: function (response) {

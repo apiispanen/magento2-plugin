@@ -1,5 +1,12 @@
 <?php
 namespace Dolphin\ExampleAdminNewPage\Api;
+
+/**
+ * Interface ChatbotInterface
+ * @api
+ * @since 100.1.0
+ */
+
 interface ChatbotInterface
 {
     /**

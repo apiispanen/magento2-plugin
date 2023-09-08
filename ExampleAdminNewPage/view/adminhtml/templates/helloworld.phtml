@@ -14,7 +14,7 @@
                 console.log("domain: " + domain);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                            url: '/V1/chatbot',
+                            url: '/index.php/V1/chatbot',
                             type: 'POST',
                             data: { form_key: formKey, text: userText },
                             success: function (response) {
@@ -24,7 +24,7 @@
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 console.error("Error: " + textStatus + ": " + errorThrown);
-                                jQuery('#chatbox').append('<p><strong>Error:</strong> Unable to get response from server</p>');
+                                jQuery('#chatbox').append('<p><strong>Error:</strong> Unable to get response from server:</p>'+errorThrown);
                             }
                         });
 

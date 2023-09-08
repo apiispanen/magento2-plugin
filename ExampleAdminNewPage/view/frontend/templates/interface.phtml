@@ -14,7 +14,7 @@
                 console.log("domain: " + domain + " formKey: " + formKey);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                            url: '/V1/chatbot',
+                            url: 'http://ec2-3-88-148-76.compute-1.amazonaws.com/V1/chatbot',
                             type: 'POST',
                             data: { text: userText },
                             success: function (response) {

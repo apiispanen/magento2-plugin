@@ -14,7 +14,7 @@
                 console.log("domain: " + domain);
                 // Send the user's message to the server and get the response
                 jQuery.ajax({
-                            url: '/index.php/V1/chatbot',
+                            url: '/V1/chatbot',
                             type: 'POST',
                             data: { form_key: formKey, text: userText },
                             success: function (response) {
@@ -30,9 +30,7 @@
 
             });
         });
-    </script>
-
-   
+    </script>  
 
     <h1 class="text-xl">DoAll Saws Chatbot</h1>
     

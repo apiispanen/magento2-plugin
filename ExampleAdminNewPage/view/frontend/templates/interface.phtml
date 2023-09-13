@@ -30,58 +30,58 @@
 
             });
         });
-    </script>
+</script>
+    <!--with tailwinds.css make a form that aligns like a chatbot on the page:  -->
+<div class="mx-10 mt-20 flex justify-center">
+        <h1 class="text-xl">DoAll Saws Chatbot</h1>
 
-   
+        <h2 class="text-lg">Configurations</h2>
+        <p class="text-md mb-2 font-bold">Here is the HTML of the above query:</p>
 
-    <h1 class="text-xl">DoAll Saws Chatbot</h1>
-    
-    <h2 class="text-lg">Configurations</h2>
-    <p class="text-md">Here is the HTML of the above query:</p>
-
-    <div class="chatbox" style="border:1px solid #ccc; padding:10px; margin-bottom:10px; height:200px; overflow-y:scroll;" id="chatbox">
-        <!-- Chat will appear here -->
-    </div>
-
-    <input type="text" id="user-input" placeholder="Ask something...">
-    <button id="send-btn">Ask GPT</button>
-
-    <!-- add an upload link -->
-    <input type="file" id="myFile" name="filename">
-    <!-- With tailwinds, add a temperature slider -->
-    <div class="w-full">
-        <label for="temperature" class="block text-lg font-medium text-gray-700">Temperature</label>
-        <div class="mt-1">
-            <input type="range" name="temperature" id="temperature" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        <div class="chatbox" style="border:1px solid #ccc; padding:10px; margin-bottom:10px; height:200px; overflow-y:scroll;" id="chatbox">
+            <!-- Chat will appear here -->
         </div>
-        <!-- send an api request -->
-        <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Send</button>
-    </div>
-    <!-- add a chatbot -->
-    <div class="w-full">
-        <label for="chatbot" class="block text-sm font-medium text-gray-700">Chatbot</label>
-        <div class="mt-1">
-            <input type="text" name="chatbot" id="chatbot" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+
+        <input type="text" id="user-input" placeholder="Ask something...">
+        <button id="send-btn">Ask GPT</button>
+
+        <!-- add an upload link -->
+        <input type="file" id="myFile" name="filename">
+        <!-- With tailwinds, add a temperature slider -->
+        <div class="w-full">
+            <label for="temperature" class="block text-lg font-medium text-gray-700">Temperature</label>
+            <div class="mt-1">
+                <input type="range" name="temperature" id="temperature" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+            </div>
+            <!-- send an api request -->
+            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Send</button>
         </div>
-    </div>
-    <!-- add a database connection -->
-    <div class="w-full">
-        <label for="database" class="block text-sm font-medium text-gray-700">Database</label>
-        <div class="mt-1">
-            <input type="text" name="database" id="database" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        <!-- add a chatbot -->
+        <div class="w-full">
+            <label for="chatbot" class="block text-sm font-medium text-gray-700">Chatbot</label>
+            <div class="mt-1">
+                <input type="text" name="chatbot" id="chatbot" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+            </div>
         </div>
-    </div>
-    <!-- add a pdf upload -->
-    <div class="w-full">
-        <label for="pdf" class="block text-sm font-medium text-gray-700">PDF</label>
-        <div class="mt-1">
-            <input type="file" name="pdf" id="pdf" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+        <!-- add a database connection -->
+        <div class="w-full">
+            <label for="database" class="block text-sm font-medium text-gray-700">Database</label>
+            <div class="mt-1">
+                <input type="text" name="database" id="database" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+            </div>
         </div>
-    </div>
-    <!-- add a submit button -->
-    <button type="submit" id="chatbot-submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Submit</button>
-    <!-- add a reset button -->
-    <button type="reset" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Reset</button>
-    <!-- add a cancel button -->
-    <button type="cancel" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Cancel</button>
-    <!-- add a save button -->
+        <!-- add a pdf upload -->
+        <div class="w-full">
+            <label for="pdf" class="block text-sm font-medium text-gray-700">PDF</label>
+            <div class="mt-1">
+                <input type="file" name="pdf" id="pdf" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+            </div>
+        </div>
+        <!-- add a submit button -->
+        <button type="submit" id="chatbot-submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Submit</button>
+        <!-- add a reset button -->
+        <button type="reset" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Reset</button>
+        <!-- add a cancel button -->
+        <button type="cancel" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">Cancel</button>
+        <!-- add a save button -->
+</div>

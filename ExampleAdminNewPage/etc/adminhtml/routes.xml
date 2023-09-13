@@ -6,7 +6,7 @@
         </route>
     </router>
        <router id="standard">
-        <route id="exampleadminnewpage" frontName="exampleadminnewpage">
+        <route id="exampleadminnewpage" frontName="samplenewpage">
             <module name="Vendor_Module"/>
         </route>
     </router>
